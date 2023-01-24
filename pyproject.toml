@@ -1,0 +1,57 @@
+[project]
+name = "visionai-scenarios"
+version = "0.0.1"
+description = "List publicly available scenarios"
+authors = [
+    {name = "Harsh Murari", email="hmurari@visionify.ai"},
+    {email = "info@visionify.ai"}
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.6"
+
+keywords = ["vision", "visionai", "inference", "computer vision"]
+
+classifiers = [
+    "Topic :: Software Development :: Python",
+    "Topic :: Software Development :: Computer Vision",
+]
+
+[project.urls]
+homepage = "https://github.com/visionify/visionai-scenarios"
+documentation = "https://docs.visionify.com"
+repository = "https://github.com/visionify/visionai-scenarios"
+
+[project.scripts]
+poetry = "infer_pyproject.cli:main"
+
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target_version = ['py36']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
