@@ -7,8 +7,8 @@
             "version": "0.0.1",
             "overview": "Detect early signs of sparks, smoke or fire. This model would give real-time events when a smoke, fire, sparks are detected. It is trained with 240032 images, out of which 183453 images were from outdoors environment, and remaining images were from indoor environment. There is a good balance between day and night pictures (44-56%)",
             "docs": "https://docs.visionify.ai/scenarios/smoke-and-fire-detection.md",
-            "image": "https://scenariosblob.blob.core.windows.net/scenarios-ppe-detection-description.jpg",
-            "thumbnail": "https://scenariosblob.blob.core.windows.net/scenarios-ppe-detection-description-200x200.jpg",
+            "image": "https://scenariosblob.blob.core.windows.net/scenarios-smoke-and-fire-description.jpg",
+            "thumbnail": "https://scenariosblob.blob.core.windows.net/scenarios-smoke-and-fire-description-200x200.jpg",
             "metrics": {
                 "accuracy": 98.2,
                 "recall": 95.2,
@@ -44,6 +44,60 @@
                         1,
                         1
                     ]
+                }
+            ]
+        },
+        {
+            "id": "648cc69e-527b-4137-ab75-b47e89838fe9",
+            "name": "ppe-detection",
+            "version": "0.0.1",
+            "overview": "Detect presence or absence of PPE (Personal Protective Equipments). ",
+            "docs": "https://docs.visionify.ai/scenarios/ppe-detection.md",
+            "image": "https://scenariosblob.blob.core.windows.net/scenarios-ppe-detection.jpg",
+            "thumbnail": "https://scenariosblob.blob.core.windows.net/scenarios-ppe-detection-200x200.jpg",
+            "metrics": {
+                "accuracy": 94.2,
+                "recall": 92.2,
+                "f1": 93.1,
+                "datasetSize": 180654
+            },
+            "model_url": "https://workplaceos.blob.core.windows.net/models/ppe-detection/ppe-detection-0.0.2.pt",
+            "model_hash": "6e9aad31791fbf77ecc4c948d600830d",
+            "tags":[
+                "Personnel Protective Equipment",
+                "Helmets",
+                "Work Boots",
+                "Goggles",
+                "Safety Vests"
+            ],
+            "categories": [
+                "Personnel health",
+                "Personnel safety",
+                "Company policies"
+            ],
+            "events": [
+                "No Helmet",
+                "No Boots",
+                "No Vests",
+                "No Goggles"
+            ],
+            "configuration": [
+                {
+                    "name": "focus_area",
+                    "type": "region_of_interest",
+                    "required": false,
+                    "default": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "name": "time_of_day",
+                    "type": "schedule",
+                    "required": false,
+                    "default": "always"
                 }
             ]
         }
