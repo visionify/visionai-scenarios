@@ -12,20 +12,46 @@ The JSON file is organized as an array of scenarios. Each scenario can have all 
 {
     "id": "5991c1bb-be6a-4f60-99a2-3db1973c96ad",
     "name": "smoke-and-fire-detection",
-    "overview": "Detect early signs of sparks, smoke or fire. This model would give real-time events when a smoke, fire, sparks are detected. It is trained with 240032 images, out of which 183453 images were from outdoors environment, and remaining images were from indoor environment. There is a good balance between day and night pictures (44-56%)",
+    "version": "0.0.2",
+    "overview": "Detect early signs of sparks, smoke or fire. Get real-time events when a smoke, fire, sparks, embers are detected. It is trained with 240032 images, out of which 183453 images were from outdoors environment, and remaining images were indoor environment. There is a good balance between day and night pictures (44-56%)",
     "docs": "https://docs.visionify.ai/scenarios/smoke-and-fire-detection.md",
-    "image": "https://scenariosblob.blob.core.windows.net/scenarios-ppe-detection-description.jpg",
-    "thumbnail": "https://scenariosblob.blob.core.windows.net/scenarios-ppe-detection-description-200x200.jpg",
-    "metrics": {
-        "accuracy": 98.2,
-        "recall": 95.2,
-        "f1": 95,
-        "datasetSize": 240032
+    "image": "https://scenariosblob.blob.core.windows.net/scenarios-smoke-and-fire-description.jpg",
+    "thumbnail": "https://scenariosblob.blob.core.windows.net/scenarios-smoke-and-fire-description-200x200.jpg",
+    "models": {
+        "latest": {
+            "version": "0.1.1",
+            "name": "yolov5-small-based",
+            "accuracy": 98.2,
+            "recall": 95.2,
+            "f1": 95,
+            "datasetSize": 240032,
+            "model_url": "https://workplaceos.blob.core.windows.net/models/smoke-and-fire-detection/smoke-and-fire-detection-0.0.1.zip",
+            "model_hash": "35285fefb794bb175f10aa7468a69c5d"
+        },
+        "other": [
+            {
+                "version": "0.1.0",
+                "name": "yolov5-medium",
+                "accuracy": 98.2,
+                "recall": 95.2,
+                "f1": 95,
+                "datasetSize": 240032,
+                "model_url": "https://workplaceos.blob.core.windows.net/models/smoke-and-fire-detection/smoke-and-fire-detection-0.0.1.zip",
+                "model_hash": "35285fefb794bb175f10aa7468a69c5d"
+            },
+            {
+                "version": "0.1.0",
+                "name": "yolov5-large",
+                "accuracy": 98.2,
+                "recall": 95.2,
+                "f1": 95,
+                "datasetSize": 240032,
+                "model_url": "https://workplaceos.blob.core.windows.net/models/smoke-and-fire-detection/smoke-and-fire-detection-0.0.1.pt",
+                "model_hash": "35285fefb794bb175f10aa7468a69c5d"
+            }
+        ]
     },
-    "model_url": "https://workplaceos.blob.core.windows.net/models/smoke-and-fire-detection/smoke-and-fire-detection-0.0.1.pt",
-    "version": "0.0.1",
-    "model_hash": "895c9c3205f6744b6c63564fff680ff7",
-    "tags":[
+    "tags": [
         "Smoke",
         "Fire",
         "Sparks",
@@ -46,7 +72,12 @@ The JSON file is organized as an array of scenarios. Each scenario can have all 
             "name": "focus_area",
             "type": "region_of_interest",
             "required": false,
-            "default": [0, 0, 1, 1]
+            "default": [
+                0,
+                0,
+                1,
+                1
+            ]
         }
     ]
 }
@@ -56,3 +87,18 @@ The JSON file is organized as an array of scenarios. Each scenario can have all 
 ## Why a giant JSON file?
 
 We thought about controlling this information through a DB/redis approach, but the problem was a good version control availability. With a JSON file, the size can increase and make it unreadable - but it would provide much better version control. Later we plan to add to add more tools that would make it easier to get just individual scenarios, scenarios by categories etc. All of these would be auto-generated files based on a single-source-of-truth.
+
+## Changelog
+
+### **0.0.2** (January 27, 2023)
+
+- Updated to have options for more than one models.
+- Model links now include zip files.
+- Each zip file contains model file, config.pbtxt, labels.txt
+- Each model is tested & can be served through triton
+
+
+### **0.0.1** (January 25, 2023)
+
+- Initial version
+- Added initial models for smoke & fire, ppe detection
