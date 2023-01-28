@@ -90,6 +90,15 @@ We thought about controlling this information through a DB/redis approach, but t
 
 ## Changelog
 
+### **0.0.3** (January 27, 2023)
+
+- Added support for the following scenarios
+- smoke-and-fire-detection 0.0.4
+- ppe-detection 0.0.4
+- smoking-detection 0.0.2
+- phone-detection 0.0.2 (including pictures)
+- rust-and-corrosion 0.0.2
+
 ### **0.0.2** (January 27, 2023)
 
 - Updated to have options for more than one models.
