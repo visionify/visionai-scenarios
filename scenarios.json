@@ -295,7 +295,7 @@
                     "f1": 95,
                     "datasetSize": 240032,
                     "model_url": "https://workplaceos.blob.core.windows.net/models/slip-and-fall-detection/slip-and-fall-detection-0.0.1.zip",
-                    "model_hash": "e51344bc586a34ad7e06f0ff9443ece7"
+                    "model_hash": "5199f169a37fcdcd9c785bb361324792"
                 },
                 "other": []
             },
