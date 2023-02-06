@@ -281,21 +281,21 @@
         {
             "id": "50948434-913f-4a61-be18-be61d63a4193",
             "name": "slip-and-fall-detection",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "overview": "Preventative maintenance. Detect person slip and fall is occuring.",
             "docs": "https://docs.visionify.ai/scenarios/slip-and-fall.md",
             "image": "https://scenariosblob.blob.core.windows.net/slip-and-fall.jpg",
             "thumbnail": "https://scenariosblob.blob.core.windows.net/slip-and-fall-200x200.jpg",
             "models": {
                 "latest": {
-                    "version": "0.0.2",
+                    "version": "0.0.3",
                     "name": "yolov5s-slip-and-fall-detection",
                     "accuracy": 98.2,
                     "recall": 95.2,
                     "f1": 95,
                     "datasetSize": 240032,
-                    "model_url": " https://workplaceos.blob.core.windows.net/models/slip-and-fall-detection/slip-and-fall-detection-0.0.2.zip",
-                    "model_hash": "1fd18ade47ced5614bd0ef243ae195bc"
+                    "model_url": "https://workplaceos.blob.core.windows.net/models/slip-and-fall-detection/slip-and-fall-detection-0.0.3.zip",
+                    "model_hash": "0a14ea1ba79188126f93c57be5470564"
                 },
                 "other": []
             },
