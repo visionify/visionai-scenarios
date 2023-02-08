@@ -330,6 +330,59 @@
                     "default": "always"
                 }
             ]
+        },
+        {
+            "id": "5f948756-8fe2-4fa5-8709-5db0985841a6",
+            "name": "people-taking-picture-detection",
+            "version": "0.0.2",
+            "overview": "Preventative maintenance. Detect person taking selfi is occuring.",
+            "docs": "https://docs.visionify.ai/scenarios/slip-and-fall.md",
+            "image": "https://scenariosblob.blob.core.windows.net/slip-and-fall.jpg",
+            "thumbnail": "https://scenariosblob.blob.core.windows.net/slip-and-fall-200x200.jpg",
+            "models": {
+                "latest": {
+                    "version": "0.0.2",
+                    "name": "yolov5s-people-taking-picture-detection",
+                    "accuracy": 98.2,
+                    "recall": 95.2,
+                    "f1": 95,
+                    "datasetSize": 240032,
+                    "model_url": "https://workplaceos.blob.core.windows.net/models/phone-detection/phone-detection-0.0.2.zip",
+                    "model_hash": "2169880d951e98f54fd7772d31648db6"
+                },
+                "other": []
+            },
+            "tags": [
+                "Equipment maintenance",
+                "Preventative service",
+                "Machinery maintenance"
+            ],
+            "categories": [
+                "Maintenance",
+                "Preventative Maintenance"
+            ],
+            "events": [
+                "Equipment detected with rust and/or corrosion"
+            ],
+            "configuration": [
+                {
+                    "name": "focus_area",
+                    "type": "region_of_interest",
+                    "required": false,
+                    "default": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "name": "time_of_day",
+                    "type": "schedule",
+                    "required": false,
+                    "default": "always"
+                }
+            ]
         }
     ]
 }
