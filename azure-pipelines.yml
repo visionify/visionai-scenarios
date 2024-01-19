@@ -1,0 +1,43 @@
+trigger:
+  branches:
+    include:
+      - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo 'Hello, World!'
+  displayName: 'visionai-scenarios Script'
+
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk'
+  inputs:
+    version: '3.1.x'
+
+- script: dotnet build --configuration Release
+  displayName: 'Build'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: false
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.DefinitionName).zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.DefinitionName).zip'
+    artifactName: 'drop'
+
+- task: AzureFileCopy@4
+  displayName: 'AzureBlob File Copy'
+  inputs:
+    SourcePath: '$(Build.ArtifactStagingDirectory)/$(Build.DefinitionName).zip'
+    azureSubscription: '8914bde9-610c-4358-9250-68afdf4f3a97'
+    Destination: 'AzureBlob'
+    storage: 'workplaceos'
+    ContainerName: 'visionai-scenarios'
+    BlobPrefix: 'build-$(Build.BuildId)-'
